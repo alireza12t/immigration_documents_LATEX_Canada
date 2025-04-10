@@ -100,5 +100,4 @@ Ensure your PDFs (such as pay stubs, CAQs, permits, and bank statements) are nam
 
 ## License
 
-This project is provided under the MIT License. Feel free to adapt and modify it as needed for personal use.
-
+You may adapt and modify this project for personal use. However, please reference the original repository in your documentation or notes even if significant changes have been made. The original repository URL: <https://github.com/alireza12t/immigration_documents_LATEX_Canada>. Thank you for acknowledging the work of original contributors.
