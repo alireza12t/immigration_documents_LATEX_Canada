@@ -1,0 +1,132 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{ifthen}
+
+% Metadata
+\title{Proof of Means of Financial Support}
+\author{Alireza Toghiani Khorasgani}
+\date{August 2024}
+
+% Personal Info
+\newcommand{\fullName}{Alireza Toghiani Khorasgani}
+
+% Employment flags
+\newboolean{hasTA}
+\newboolean{hasRA}
+\newboolean{hasExternalJob}
+
+% Set values here
+\setboolean{hasExternalJob}{true}
+
+
+% Expense Variables (monthly values)
+\newcommand{\rentExpense}{1190}
+\newcommand{\groceryExpense}{500}
+\newcommand{\transportExpense}{60}
+\newcommand{\remainingTuition}{0} % Set to non-zero if tuition remains
+\newcommand{\oneTimeTravelExpense}{1200}
+
+% Monthly Income
+\newcommand{\grossSalary}{3000}
+\newcommand{\netSalary}{2000} % From external job
+\newcommand{\taMonthlyIncome}{300}
+\newcommand{\raMonthlyIncome}{1000}
+
+% Savings
+\newcommand{\savingsBalance}{7500}
+
+% Computed Annual Values
+\newcommand{\academicAnnualIncome}{\the\numexpr (\taMonthlyIncome + \raMonthlyIncome) * 12 \relax}
+\newcommand{\externalAnnualIncome}{\the\numexpr \netSalary * 12 \relax}
+\newcommand{\totalAnnualIncome}{\the\numexpr (\netSalary + \taMonthlyIncome + \raMonthlyIncome) * 12 \relax}
+\newcommand{\annualFixedExpenses}{\the\numexpr (\rentExpense + \groceryExpense + \transportExpense) * 12 \relax}
+\newcommand{\annualTuition}{\remainingTuition}
+\newcommand{\annualTotalExpenses}{\the\numexpr (\rentExpense + \groceryExpense + \transportExpense) * 12 + \remainingTuition + \oneTimeTravelExpense \relax}
+\newcommand{\totalAvailableFunds}{\the\numexpr (\netSalary + \taMonthlyIncome + \raMonthlyIncome) * 12 + \savingsBalance \relax}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This document serves as proof of financial support for \fullName{}. The enclosed documents substantiate ongoing employment, research funding, and sufficient financial resources to support living expenses.
+
+\section{Employment and Salary Details}
+\fullName{} is employed in the following capacities at the university and externally. These positions ensure financial stability. Below is a breakdown of the employment and financial details:
+
+\begin{itemize}
+
+    % Teaching Assistant block (shown if taMonthlyIncome ≠ 0)
+\ifthenelse{\equal{\taMonthlyIncome}{0}}{}{
+    \item \textbf{Teaching Assistant (TA)}: \fullName{} works as a TA, assisting in undergraduate courses. This role involves grading assignments, conducting tutorials, and supporting professors in the delivery of course content. The gross monthly income from this position is approximately CA\$\taMonthlyIncome{}.
+}
+
+% Research Assistant block (shown if raMonthlyIncome ≠ 0)
+\ifthenelse{\equal{\raMonthlyIncome}{0}}{}{
+    \item \textbf{Research Assistant (RA)}: As an RA, \fullName{} engages in research projects under the supervision of a faculty member. This work includes conducting experiments, data analysis, and contributing to academic papers. The gross monthly income from this position is approximately CA\$\raMonthlyIncome{}.
+}
+
+\ifthenelse{\boolean{hasExternalJob}}{
+    \item \textbf{External Job}: \fullName{} also holds a separate job outside the university, providing additional income. The details of this position are confidential, but the pay stub attached is from this employment%
+    \ifthenelse{
+        \not\equal{\grossSalary}{} \and \not\equal{\netSalary}{}
+    }{
+        . The gross pay from the external job results in a total gross monthly income of approximately CA\$\grossSalary{}. After necessary deductions, the net take-home pay is CA\$\netSalary{} per month.
+    }{.}
+}{}
+
+\end{itemize}
+
+\section{Financial Summary and Sustainability}
+
+Based on the submitted documents, \fullName{} incurs the following monthly expenses:
+
+\begin{itemize}
+    \item \textbf{Rent:} CA\$\rentExpense{}
+    \item \textbf{Groceries and Other Expenses:} CA\$\groceryExpense{}
+    \item \textbf{Transportation:} CA\$\transportExpense{}
+    \ifthenelse{\equal{\remainingTuition}{0}}{}{
+        \item \textbf{Remaining Tuition:} CA\$\remainingTuition{} (to be paid)
+    }
+    \item \textbf{One-Time Travel Expense:} CA\$\oneTimeTravelExpense{} (return ticket to home country)
+\end{itemize}
+
+This results in an approximate annual expense of CA\$\annualTotalExpenses{}.
+
+The total expected annual income, based on current employment and funding sources mentioned above, is CA\$\totalAnnualIncome{}.
+
+\ifthenelse{\equal{\savingsBalance}{0}}{}{
+    In addition, \fullName{} currently holds a savings balance of CA\$\savingsBalance{}, as evidenced by the attached bank statements. This amount serves as a financial buffer to support living and academic costs if needed.
+}
+The total available funds, combining income and savings, amount to CA\$\totalAvailableFunds{}.
+
+\ifthenelse{\numexpr \totalAvailableFunds > \annualTotalExpenses}{
+    As demonstrated, the total available funds exceed the expected annual expenses, confirming sufficient financial means to support ongoing living and academic obligations.
+}{
+    The total available funds fall short of the projected annual expenses. Additional planning or support may be necessary to ensure financial sustainability.
+}
+
+
+\ifthenelse{\boolean{hasExternalJob}}{
+    The attached pay stub is from the external job, illustrating the income received.
+
+    \includepdf[pages=-]{pay_stub.pdf}
+}{}
+
+\ifthenelse{\boolean{hasRA}}{
+    \section{Research Funding}
+    In addition to the employment income, \fullName{} receives financial support through a research stipend provided by the university. This stipend covers tuition fees and provides a living allowance, ensuring financial stability throughout the study period. The official letter confirming this funding is included as an attachment.
+
+    \includepdf[pages=-]{university_payment_letter.pdf}
+}{}
+
+\section{Bank Statements}
+To further demonstrate financial stability, the last three months of bank statements are attached. These documents provide a detailed view of the financial transactions and balance history, indicating sufficient funds to meet living expenses.
+
+\includepdf[pages=-]{bank_statement_1.pdf}
+\includepdf[pages=-]{bank_statement_2.pdf}
+\includepdf[pages=-]{bank_statement_3.pdf}
+
+\end{document}
