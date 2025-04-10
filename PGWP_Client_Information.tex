@@ -1,0 +1,127 @@
+\documentclass{article}
+\usepackage{pdfpages}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{ifthen} % for conditional statements
+
+% Define booleans for renewal status
+\newboolean{caqRenewed}
+\newboolean{studyPermitRenewed}
+
+% Section formatting
+\titleformat{\section}[block]{\Large\bfseries}{\thesection.}{1em}{}
+
+% Personal Information Variables, Fill based on your real Information
+\newcommand{\fullName}{}
+\newcommand{\emailAddress}{email@gmail.com}
+\newcommand{\phoneNumber}{+1-111-111-1111}
+\newcommand{\universityName}{Concordia University}
+\newcommand{\programName}{Master of Applied Science in Information Systems Engineering}
+\newcommand{\graduationDate}{April 08, 2025}
+\newcommand{\employmentStartDate}{} % leave empty if you are not currently working
+\newcommand{\employerName}{} % leave empty if you are not currently working
+% Set booleans (set to true or false as needed)
+\setboolean{caqRenewed}{true}
+\setboolean{studyPermitRenewed}{true}
+
+% Title Page Command
+\newcommand{\titlePage}[1]{
+    \newpage
+    \thispagestyle{empty}
+    \vspace*{\fill}
+    \begin{center}
+        {\LARGE \textbf{#1}}
+    \end{center}
+    \vspace*{\fill}
+    \newpage
+}
+
+\begin{document}
+
+% Cover Letter
+\section*{Client Information}
+
+To Whom It May Concern,
+
+I am writing to briefly explain my current situation and submit necessary documents for my Post-Graduation Work Permit (PGWP) application.
+
+I recently completed my \programName{} at \universityName{}, graduating on \graduationDate{}. All my tuition fees have been fully paid.
+
+\ifthenelse{\equal{\employerName}{}}{
+    I am currently seeking employment relevant to my field of study, and I am applying for the PGWP to begin my professional career in Canada.
+}{
+    Since \employmentStartDate{}, I have been employed full-time at \employerName{}.
+}
+
+Below, please find the supporting documentation pertinent to my application, clearly organized for your convenience.
+\begin{itemize}
+    \item Attestation Letter (All Semesters)
+    \item Previous CAQ
+    \item Current CAQ after renewal
+    \item Previous Study Permit
+    \item Current Study Permit after renewal
+    \item English Exam Official Result
+    \item Last 3 month Bank Statements
+    \item March 2024 2nd Pay Stub
+    \item Bank Account Balance
+    \item Tax 2024 Notice of Assessment Letter
+    \item Insurance Confirmation Letter
+\end{itemize}
+
+\vspace{1cm}
+
+Thank you for considering my application.
+
+\vspace{0.5cm}
+
+Sincerely,\\
+\fullName{}\\
+\emailAddress{}\\
+\phoneNumber{}
+
+% Documents Section
+
+\titlePage{Attestation Letter (All Semesters)}
+\includepdf[pages=-]{attestation_letter.pdf}
+
+\titlePage{Previous CAQ}
+\includepdf[pages=-]{CAQ.pdf}
+
+\ifthenelse{\boolean{caqRenewed}}{
+    \titlePage{Current CAQ after renewal}
+    \includepdf[pages=-]{CAQ_new.pdf}
+}{}
+
+\titlePage{Previous Study Permit}
+\includepdf[pages=-]{study_permit.pdf}
+
+\ifthenelse{\boolean{studyPermitRenewed}}{
+    \titlePage{Current Study Permit after renewal}
+    \includepdf[pages=-]{study_permit_new.pdf}
+}{}
+
+\titlePage{English Exam Official Result}
+\includepdf[pages=-]{CELPIP_official_score_record.pdf}
+
+\titlePage{Last 3 month Bank Statements}
+\includepdf[pages=-]{march_2024_bank_statement.pdf}
+\includepdf[pages=-]{feb_2024_bank_statement.pdf}
+\includepdf[pages=-]{jan_2024_bank_statement.pdf}
+
+\ifthenelse{\equal{\employerName}{}}{
+
+}{
+\titlePage{March 2024 2nd Pay Stub}
+\includepdf[pages=-]{march_2024_pay_stub_1.pdf}
+}
+
+\titlePage{Bank Account Balance}
+\includepdf[pages=-]{bank_account_balance.pdf}
+
+\titlePage{Tax 2024 Notice of Assessment Letter}
+\includepdf[pages=-]{tax_NA_2024.pdf}
+
+\titlePage{Insurance Confirmation Letter}
+\includepdf[pages=-]{insurance_blue_cross.pdf}
+
+\end{document}
