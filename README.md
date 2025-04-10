@@ -2,6 +2,21 @@
 
 This repository contains LaTeX templates and scripts designed to assist in generating essential documents required for immigration applications, specifically tailored for study permit renewals and Post-Graduation Work Permit (PGWP) applications in Canada.
 
+---
+
+## Table of Contents
+
+- [How to Use](#how-to-use)
+- [Parameter Explanations](#parameter-explanations)
+  - [Proof of Means of Financial Support](#proof-of-means-of-financial-support)
+  - [PGWP Client Information](#pgwp-client-information)
+- [File Organization](#file-organization)
+- [Requirements](#requirements)
+- [Troubleshooting](#troubleshooting)
+- [License](#license)
+
+---
+
 ## How to Use
 
 ### General Instructions:
@@ -12,6 +27,7 @@ git clone <repository-url>
 ```
 
 2. **Navigate to the specific document folder and modify parameters:**
+
 - For proof of means documents, edit `proof_means_financial_renew_study_permit.tex`.
 - For PGWP client information, edit `PGWP_Client_Information.tex`.
 
@@ -20,7 +36,9 @@ git clone <repository-url>
 pdflatex <document_name>.tex
 ```
 
-4. **Ensure required PDF files (bank statements, pay stubs, etc.) are placed in the same folder or the paths are adjusted accordingly.**
+4. **Ensure required PDF files (bank statements, pay stubs, etc.) are placed in the same folder or adjust paths accordingly.**
+
+---
 
 ## Parameter Explanations
 
@@ -58,18 +76,29 @@ pdflatex <document_name>.tex
 | `\caqRenewed` | Boolean flag indicating renewal status of CAQ. |
 | `\studyPermitRenewed` | Boolean flag indicating renewal status of study permit. |
 
+---
+
 ## File Organization
 
-Ensure your PDFs (such as pay stubs, CAQs, permits, and bank statements) are named exactly as referenced in the LaTeX files or adjust the filenames in the LaTeX documents accordingly.
+Ensure your PDFs (such as pay stubs, CAQs, permits, and bank statements) are named exactly as referenced in the LaTeX files or adjust filenames accordingly.
+
+---
 
 ## Requirements
+
 - **LaTeX distribution** (such as TeX Live or MiKTeX)
 - **pdfLaTeX** (included with most LaTeX distributions)
 
+---
+
 ## Troubleshooting
+
 - If documents fail to compile, ensure all referenced PDFs exist and are correctly named.
 - Check for any missing LaTeX packages by reviewing compilation errors.
 
+---
+
 ## License
+
 This project is provided under the MIT License. Feel free to adapt and modify it as needed for personal use.
 
