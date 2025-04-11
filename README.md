@@ -1,5 +1,12 @@
 # Immigration Documents LaTeX Repository
 
+## Disclaimer:
+
+I am not an official immigration advisor or representative. The templates and scripts provided in this repository reflect personal experiences and methods used during my own immigration application processes. Immigration rules and obligations frequently change, and accuracy cannot be guaranteed. I assume no legal responsibility for any outcomes resulting from the use of these documents. Users must exercise caution, verify the latest immigration rules, and seek professional legal advice as needed before using these templates.
+
+---
+## Repository Overview
+
 This repository contains LaTeX templates and scripts designed to assist in generating essential documents required for immigration applications, specifically tailored for study permit renewals and Post-Graduation Work Permit (PGWP) applications in Canada.
 
 ---
