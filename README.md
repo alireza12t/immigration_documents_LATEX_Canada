@@ -13,6 +13,7 @@ This repository contains LaTeX templates and scripts designed to assist in gener
 - [File Organization](#file-organization)
 - [Requirements](#requirements)
 - [Troubleshooting](#troubleshooting)
+- [Other Repositories](#other-repositories)
 - [License](#license)
 
 ---
@@ -95,6 +96,16 @@ Ensure your PDFs (such as pay stubs, CAQs, permits, and bank statements) are nam
 
 - If documents fail to compile, ensure all referenced PDFs exist and are correctly named.
 - Check for any missing LaTeX packages by reviewing compilation errors.
+
+---
+
+## Other Repositories
+
+Other similar repositories exist for Canadian immigration documents. 
+Here is a _non-exhaustive_ list of the documents that we have identified. 
+Please refer to as many sources as well as professional legal, immigration advice for your case. 
+
+- [https://github.com/aliraeisdanaei/Quebec-CAQ-Study-Permit-Financial-Capacity-Letter-Template](Quebec-CAQ-Study-Permit-Financial-Capacity-Letter-Template)
 
 ---
 
